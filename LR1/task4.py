@@ -1,14 +1,13 @@
-import cv2
+# Задание 4. Записать видео из файла в другой файл
 
+import cv2
 
 output_file = "output_video.avi"  # Имя выходного файла
 frame_width = 640  # Ширина кадра
 frame_height = 480  # Высота кадра
 fps = 30.0  # Количество кадров в секунду
 
-
 cap = cv2.VideoCapture(0)
-
 
 if not cap.isOpened():
     print("Ошибка при открытии вебкамеры.")
