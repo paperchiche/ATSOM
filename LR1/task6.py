@@ -7,10 +7,8 @@ import cv2
 img = cv2.imread(r'C:/Users/20art/Desktop/01.jpg')
 height, width, _ = img.shape
 
-
 rect_width = 50  # Ширина прямоугольника
 rect_height = 250  # Высота прямоугольника
-
 
 top_left_x = (width - rect_width) // 2  # Положение вертикали
 top_left_y = (height - rect_height) // 2
@@ -41,11 +39,12 @@ ROI = img[top_left_y:top_left_y + rect_height, top_left_x:top_left_x + rect_widt
 # Возможные значения: cv.BORDER_CONSTANT cv.BORDER_REPLICATE cv.BORDER_REFLECT cv.BORDER_WRAP
 # cv.BORDER_REFLECT_101 cv.BORDER_TRANSPARENT cv.BORDER_REFLECT101 cv.BORDER_DEFAULT cv.BORDER_ISOLATED
 
-blur = cv2.GaussianBlur(ROI, (101, 1), 30)
+blur = cv2.GaussianBlur(ROI, (101, 1), 30)  # 2-ой аргумент - размер ядра по Гауссу, сигма х у - отклонение ядра
 img[top_left_y:top_left_y + rect_height, top_left_x:top_left_x + rect_width] = blur
 
 
 cv2.namedWindow('image', cv2.WINDOW_NORMAL)  # Окно с изменяемым размером
 cv2.imshow('image', img)
 cv2.waitKey(0)
+
 cv2.destroyAllWindows()

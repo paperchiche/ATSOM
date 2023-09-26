@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="28967f7b-391b-4235-b561-e26207b0b4eb" name="Changes" comment="" />
+    <list default="true" id="28967f7b-391b-4235-b561-e26207b0b4eb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/LR1/task7.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LR1/task4.py" beforeDir="false" afterPath="$PROJECT_DIR$/LR1/task4.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LR1/task6.py" beforeDir="false" afterPath="$PROJECT_DIR$/LR1/task6.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,7 +29,8 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/GitHub/ATSOM"
+    "last_opened_file_path": "C:/GitHub/ATSOM",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

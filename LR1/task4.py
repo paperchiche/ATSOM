@@ -13,7 +13,6 @@ if not cap.isOpened():
     print("Ошибка при открытии вебкамеры.")
     exit()
 
-
 fourcc = cv2.VideoWriter_fourcc(*'XVID')  # кодек (XVID для AVI)
 out = cv2.VideoWriter(output_file, fourcc, fps, (frame_width, frame_height))
 
