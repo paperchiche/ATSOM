@@ -7,8 +7,8 @@ import cv2
 img = cv2.imread(r'C:/Users/20art/Desktop/01.jpg')
 height, width, _ = img.shape
 
-rect_width = 50  # Ширина прямоугольника
-rect_height = 250  # Высота прямоугольника
+rect_width = 60  # Ширина прямоугольника (вертикаль)
+rect_height = 300  # Высота прямоугольника (вертикаль)
 
 top_left_x = (width - rect_width) // 2  # Положение вертикали
 top_left_y = (height - rect_height) // 2
@@ -16,8 +16,8 @@ bottom_right_x = top_left_x + rect_width
 bottom_right_y = top_left_y + rect_height
 cv2.rectangle(img, (top_left_x, top_left_y), (bottom_right_x, bottom_right_y), (0, 0, 255), 3)  # - ., .,  цвет, толщина
 
-rect_width = 250  # Ширина прямоугольника
-rect_height = 50  # Высота прямоугольника
+rect_width = 300  # Ширина прямоугольника (горизонталь)
+rect_height = 50  # Высота прямоугольника (горизонталь)
 
 top_left_x = (width - rect_width) // 2  # Положение горизонтали
 top_left_y = (height - rect_height) // 2

@@ -3,21 +3,21 @@
 # различных флага для чтения изображения.
 
 # Примеры флагов для создания окна
-# cv2.WINDOW_NORMAL - Окно с изменяемым размером
-# cv2.WINDOW_AUTOSIZE - Окно с фиксированным размером
-# cv2.WINDOW_FULLSCREEN - Полноэкранное окно
+# 1. cv2.WINDOW_NORMAL - Окно с изменяемым размером
+# 2. cv2.WINDOW_AUTOSIZE - Окно с фиксированным размером
+# 3. cv2.WINDOW_FULLSCREEN - Полноэкранное окно
 
 # Примеры флагов для чтения изображения
-# cv2.IMREAD_COLOR - Чтение изображения в цвете (по умолчанию)
-# cv2.IMREAD_GRAYSCALE - Чтение изображения в оттенках серого
-# cv2.IMREAD_UNCHANGED - Чтение изображения без изменений
+# 1. cv2.IMREAD_COLOR - Чтение изображения в цвете (по умолчанию)
+# 2. cv2.IMREAD_GRAYSCALE - Чтение изображения в оттенках серого
+# 3. cv2.IMREAD_UNCHANGED - Чтение изображения без изменений
 
 import cv2
 # Загружаем изображение с разными расширениями
 image_extensions = ["png", "jpg", "bmp"]
 
 for ext in image_extensions:
-    image_path = r'C:/Users/20art/Desktop/01.jpg'
+    image_path = r'C:/Users/20art/Desktop/02.png'
     img = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)  # Чтение в оттенках серого
 
     if img is not None:

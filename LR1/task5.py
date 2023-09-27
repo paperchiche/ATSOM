@@ -5,9 +5,16 @@
 import cv2
 
 image_path = r'C:/Users/20art/Desktop/01.jpg'
-img = cv2.imread(image_path, cv2.IMREAD_COLOR)  # Чтение в оттенках серого
+img = cv2.imread(image_path)
+
+cv2.namedWindow('Original', cv2.WINDOW_NORMAL)
+cv2.namedWindow('HSV', cv2.WINDOW_NORMAL)
+
+cv2.imshow("Original", img)
 
 hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
-cv2.imshow("Original", img)
+
 cv2.imshow("HSV", hsv)
+
 cv2.waitKey(0)
+cv2.destroyAllWindows()

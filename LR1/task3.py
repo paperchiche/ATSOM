@@ -1,10 +1,9 @@
 # Задание 3. Отобразить видео в окне. Рассмотреть методы класса
-# VideoCapture и попробовать отображать видео в разных форматах, в частности
-# размеры и цветовая гамма.
+# VideoCapture и попробовать отображать видео в разных форматах, в частности размеры и цветовая гамма.
 
 import cv2
 
-cap = cv2.VideoCapture(r'C:\Users\20art\Videos\Captures\video1.mp4')
+cap = cv2.VideoCapture(r'C:\Users\20art\Videos\Captures\video01.mp4')
 # если указать 0, то будет вебка
 # cap = cv2.VideoCapture(0)
 
@@ -29,13 +28,11 @@ while True:
 
     # Отображение кадра на экране.
     resize = cv2.resize(frame, (640, 360))  # изменение расширения
-    cv2.normalize(frame, frame, 0, 277, cv2.NORM_MINMAX)
     cv2.imshow("Video", resize)
 
-    # Выход на q.
     if cv2.waitKey(25) & 0xFF == ord('q'):
         break
 
-# Освобождение памяти
+
 cap.release()
 cv2.destroyAllWindows()

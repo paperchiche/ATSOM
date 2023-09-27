@@ -26,8 +26,7 @@ while True:
     # Запись кадра в выходное видео
     out.write(frame)
 
-    # зеркало
-    cv2.imshow("Webcam Video", frame)
+    cv2.imshow("Webcam Video", frame)  # Используется для отображения видео. Название видео будет первым аргументом
 
     # выход
     if cv2.waitKey(1) & 0xFF == ord('q'):
