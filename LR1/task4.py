@@ -1,13 +1,11 @@
-# Задание 4. Записать видео из файла в другой файл
-
 import cv2
 
 output_file = "output_video.avi"  # Имя выходного файла
-frame_width = 640  # Ширина кадра
-frame_height = 480  # Высота кадра
+frame_width = 1280  # Ширина кадра
+frame_height = 720  # Высота кадра
 fps = 30.0  # Количество кадров в секунду
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(r'C:\GitHub\ATSOM\LR1\video01.mp4')
 
 if not cap.isOpened():
     print("Ошибка при открытии вебкамеры.")
@@ -26,7 +24,8 @@ while True:
     # Запись кадра в выходное видео
     out.write(frame)
 
-    cv2.imshow("Webcam Video", frame)  # Используется для отображения видео. Название видео будет первым аргументом
+    # зеркало
+    cv2.imshow("Video", frame)
 
     # выход
     if cv2.waitKey(1) & 0xFF == ord('q'):

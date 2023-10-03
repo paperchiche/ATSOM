@@ -1,8 +1,3 @@
-# Задание 8 (самостоятельно) Залить крест одним из 3 цветов – красный,
-# зеленый, синий по следующему правилу: НА ОСНОВАНИИ ФОРМАТА RGB
-# определить, центральный пиксель ближе к какому из цветов красный,
-# зеленый, синий и таким цветом заполнить крест.
-
 import math
 
 import cv2
@@ -12,7 +7,7 @@ img = cv2.imread(r'C:/Users/20art/Desktop/01.jpg')
 height, width, _ = img.shape
 center_x = width // 2
 center_y = height // 2
-#center_pixel = img[center_x, center_y]
+# center_pixel = img[center_x, center_y]
 
 (b, g, r) = img[np.int16(center_y), np.int16(center_x)]
 print("Color at center pixel is - Red: {}, Green: {}, Blue: {}".format(r, g, b))
@@ -34,35 +29,35 @@ def closest_color(x,y):
 closest = closest_color(center_x, center_y)
 print(closest)
 
-rect_width = 50  # Ширина вертикали
-rect_height = 250  # Высота вертикали
+rect_width = 50
+rect_height = 250
 
 top_left_x = (width - rect_width) // 2
 top_left_y = (height - rect_height) // 2
 bottom_right_x = top_left_x + rect_width
 bottom_right_y = top_left_y + rect_height
 if closest == "0":
-    cv2.rectangle(img, (top_left_x, top_left_y), (bottom_right_x, bottom_right_y), (255, 0, 0), -1)
+    cv2.rectangle(img, (top_left_x, top_left_y), (bottom_right_x, bottom_right_y), (0, 0, 255), -1)
 if closest == "1":
     cv2.rectangle(img, (top_left_x, top_left_y), (bottom_right_x, bottom_right_y), (0, 255, 0), -1)
 if closest == "2":
-    cv2.rectangle(img, (top_left_x, top_left_y), (bottom_right_x, bottom_right_y), (0, 0, 255), -1)
+    cv2.rectangle(img, (top_left_x, top_left_y), (bottom_right_x, bottom_right_y), (255, 0, 0), -1)
 
-rect_width = 250  # Ширина горизонтали
-rect_height = 50  # Высота горизонтали
+rect_width = 250
+rect_height = 50
 
 top_left_x = (width - rect_width) // 2
 top_left_y = (height - rect_height) // 2
 bottom_right_x = top_left_x + rect_width
 bottom_right_y = top_left_y + rect_height
 if closest == "0":
-    cv2.rectangle(img, (top_left_x, top_left_y), (bottom_right_x, bottom_right_y), (255, 0, 0), -1)
+    cv2.rectangle(img, (top_left_x, top_left_y), (bottom_right_x, bottom_right_y), (0, 0, 255), -1)
 if closest == "1":
     cv2.rectangle(img, (top_left_x, top_left_y), (bottom_right_x, bottom_right_y), (0, 255, 0), -1)
 if closest == "2":
-    cv2.rectangle(img, (top_left_x, top_left_y), (bottom_right_x, bottom_right_y), (0, 0, 255), -1)
+    cv2.rectangle(img, (top_left_x, top_left_y), (bottom_right_x, bottom_right_y), (255, 0, 0), -1)
 
-cv2.namedWindow('image', cv2.WINDOW_NORMAL)  # Окно с изменяемым размером
+cv2.namedWindow('image', cv2.WINDOW_NORMAL)
 cv2.imshow('image', img)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
