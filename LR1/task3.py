@@ -3,7 +3,7 @@
 
 import cv2
 
-cap = cv2.VideoCapture(r'C:\Users\20art\Videos\Captures\video01.mp4')
+cap = cv2.VideoCapture(r'C:\GitHub\ATSOM\LR1\video01.mp4')
 # если указать 0, то будет вебка
 # cap = cv2.VideoCapture(0)
 

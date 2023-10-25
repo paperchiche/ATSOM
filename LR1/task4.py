@@ -1,15 +1,14 @@
 import cv2
 
+
 output_file = "output_video.avi"  # Имя выходного файла
 frame_width = 1280  # Ширина кадра
 frame_height = 720  # Высота кадра
-fps = 30.0  # Количество кадров в секунду
+fps = 1  # Количество кадров в секунду
 
-cap = cv2.VideoCapture(r'C:\GitHub\ATSOM\LR1\video01.mp4')
 
-if not cap.isOpened():
-    print("Ошибка при открытии вебкамеры.")
-    exit()
+cap = cv2.VideoCapture(r'C:\Users\20art\Desktop\video01.mp4')
+
 
 fourcc = cv2.VideoWriter_fourcc(*'XVID')  # кодек (XVID для AVI)
 out = cv2.VideoWriter(output_file, fourcc, fps, (frame_width, frame_height))

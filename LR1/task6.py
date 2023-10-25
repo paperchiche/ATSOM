@@ -7,41 +7,31 @@ import cv2
 img = cv2.imread(r'C:/Users/20art/Desktop/01.jpg')
 height, width, _ = img.shape
 
-rect_width = 60  # Ширина прямоугольника (вертикаль)
-rect_height = 300  # Высота прямоугольника (вертикаль)
+# Расчет координат центра изображения
+center_x = width // 2
+center_y = height // 2
 
-top_left_x = (width - rect_width) // 2  # Положение вертикали
-top_left_y = (height - rect_height) // 2
-bottom_right_x = top_left_x + rect_width
-bottom_right_y = top_left_y + rect_height
-cv2.rectangle(img, (top_left_x, top_left_y), (bottom_right_x, bottom_right_y), (0, 0, 255), 3)  # - ., .,  цвет, толщина
+# Размер и цвет прицела
+crosshair_size = 70
+crosshair_color = (255, 255, 255)  # Белый цвет прицела
 
-rect_width = 300  # Ширина прямоугольника (горизонталь)
-rect_height = 50  # Высота прямоугольника (горизонталь)
+# Отрисовка вертикальной линии прицела
+cv2.line(img, (center_x, center_y - crosshair_size // 2), (center_x, center_y + crosshair_size // 2), crosshair_color, 2)
 
-top_left_x = (width - rect_width) // 2  # Положение горизонтали
-top_left_y = (height - rect_height) // 2
-bottom_right_x = top_left_x + rect_width
-bottom_right_y = top_left_y + rect_height
-cv2.rectangle(img, (top_left_x, top_left_y), (bottom_right_x, bottom_right_y), (0, 0, 255), 3)
+# Отрисовка горизонтальной линии прицела
+cv2.line(img, (center_x - crosshair_size // 2, center_y), (center_x + crosshair_size // 2, center_y), crosshair_color, 2)
 
-ROI = img[top_left_y:top_left_y + rect_height, top_left_x:top_left_x + rect_width]
+# Радиус и цвет круга внутри прицела
+circle_radius = 5
+circle_color = (0, 0, 255)  # Красный цвет внутри
 
-# cv2.GaussianBlur(src, ksize, sigmaX, sigmaY, borderType)
-# src	Это входное изображение
-# ksize	Это размер ядра по Гауссу. [высота ширина]. Высота и ширина должны быть нечетными и
-# могут иметь разные значения. Если ksize установлен в [0 0], то ksize вычисляется из значений сигма.
-# sigmaX	Это стандартное отклонение ядра вдоль оси X(горизонтальное направление).
-# sigmaY	Это стандартное отклонение ядра по оси Y(вертикальное направление).
-# Если sigmaY=0, то для sigmaY берется значение sigmaX.
-# borderType	Определяет границы изображения,
-# в то время как ядро применяется к границам изображения.
-# Возможные значения: cv.BORDER_CONSTANT cv.BORDER_REPLICATE cv.BORDER_REFLECT cv.BORDER_WRAP
-# cv.BORDER_REFLECT_101 cv.BORDER_TRANSPARENT cv.BORDER_REFLECT101 cv.BORDER_DEFAULT cv.BORDER_ISOLATED
+# Отрисовка круга внутри прицела
+cv2.circle(img, (center_x, center_y), circle_radius, circle_color)
 
-blur = cv2.GaussianBlur(ROI, (101, 1), 30)  # 2-ой аргумент - размер ядра по Гауссу, сигма х у - отклонение ядра
-img[top_left_y:top_left_y + rect_height, top_left_x:top_left_x + rect_width] = blur
-
+# Отображение изображения с прицелом
+cv2.imshow("Image with Crosshair", img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 
 cv2.namedWindow('image', cv2.WINDOW_NORMAL)  # Окно с изменяемым размером
 cv2.imshow('image', img)
