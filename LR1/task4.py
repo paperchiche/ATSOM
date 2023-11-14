@@ -1,36 +1,51 @@
+# -*- coding: cp1251 -*-
 import cv2
 
+# Параметры для входного видео
+input_file = r"C:\GitHub\ATSOM\LR1\video01.mp4"
 
-output_file = "output_video.avi"  # РРјСЏ РІС‹С…РѕРґРЅРѕРіРѕ С„Р°Р№Р»Р°
-frame_width = 1280  # РЁРёСЂРёРЅР° РєР°РґСЂР°
-frame_height = 720  # Р’С‹СЃРѕС‚Р° РєР°РґСЂР°
-fps = 1  # РљРѕР»РёС‡РµСЃС‚РІРѕ РєР°РґСЂРѕРІ РІ СЃРµРєСѓРЅРґСѓ
+# Параметры для выходного видео
+output_file = "output_video.avi"
+frame_width = 1280  # Ширина кадра
+frame_height = 720  # Высота кадра
+fps = 30  # Количество кадров в секунду
 
+# Открываем входное видео
+cap = cv2.VideoCapture(input_file)
 
-cap = cv2.VideoCapture(r'C:\Users\20art\Desktop\video01.mp4')
+# Проверяем, успешно ли открыто видео
+if not cap.isOpened():
+    print("Ошибка при открытии видео.")
+    exit()
 
+# Получаем размеры кадра из входного видео
+frame_width = int(cap.get(3))
+frame_height = int(cap.get(4))
 
-fourcc = cv2.VideoWriter_fourcc(*'XVID')  # РєРѕРґРµРє (XVID РґР»СЏ AVI)
+# Определяем кодек и создаем объект VideoWriter для записи выходного видео
+fourcc = cv2.VideoWriter_fourcc(*'XVID')
 out = cv2.VideoWriter(output_file, fourcc, fps, (frame_width, frame_height))
 
+# Читаем кадры из входного видео и записываем их в выходное видео
 while True:
     ret, frame = cap.read()
 
+    # Проверяем, успешно ли считан кадр
     if not ret:
-        print("РћС€РёР±РєР° РїСЂРё Р·Р°С…РІР°С‚Рµ РєР°РґСЂР°.")
+        print("Ошибка при захвате кадра.")
         break
 
-    # Р—Р°РїРёСЃСЊ РєР°РґСЂР° РІ РІС‹С…РѕРґРЅРѕРµ РІРёРґРµРѕ
+    # Записываем кадр в выходное видео
     out.write(frame)
 
-    # Р·РµСЂРєР°Р»Рѕ
+    # Отображаем кадр
     cv2.imshow("Video", frame)
 
-    # РІС‹С…РѕРґ
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    # Выход по нажатию клавиши 'q' с задержкой 25 миллисекунд
+    if cv2.waitKey(25) & 0xFF == ord('q'):
         break
 
-# РІС‹С…РѕРґ
+# Освобождаем ресурсы
 cap.release()
 out.release()
 cv2.destroyAllWindows()

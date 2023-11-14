@@ -29,7 +29,7 @@ circle_color = (0, 0, 255)  # Красный цвет внутри
 cv2.circle(img, (center_x, center_y), circle_radius, circle_color)
 
 # Отображение изображения с прицелом
-cv2.imshow("Image with Crosshair", img)
+cv2.imshow("Image", img)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
