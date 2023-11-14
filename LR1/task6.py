@@ -13,7 +13,7 @@ center_y = height // 2
 
 # Размер и цвет прицела
 crosshair_size = 70
-crosshair_color = (255, 255, 255)  # Белый цвет прицела
+crosshair_color = (255, 255, 255)
 
 # Отрисовка вертикальной линии прицела
 cv2.line(img, (center_x, center_y - crosshair_size // 2), (center_x, center_y + crosshair_size // 2), crosshair_color, 2)
@@ -32,9 +32,5 @@ cv2.circle(img, (center_x, center_y), circle_radius, circle_color)
 cv2.imshow("Image", img)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
-
-cv2.namedWindow('image', cv2.WINDOW_NORMAL)  # Окно с изменяемым размером
-cv2.imshow('image', img)
-cv2.waitKey(0)
 
 cv2.destroyAllWindows()
