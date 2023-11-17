@@ -11,7 +11,6 @@ height, width, _ = img.shape
 center_x = width // 2
 center_y = height // 2
 
-# Размер и цвет прицела
 crosshair_size = 70
 crosshair_color = (255, 255, 255)
 
@@ -28,7 +27,6 @@ circle_color = (0, 0, 255)  # Красный цвет внутри
 # Отрисовка круга внутри прицела
 cv2.circle(img, (center_x, center_y), circle_radius, circle_color)
 
-# Отображение изображения с прицелом
 cv2.imshow("Image", img)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
