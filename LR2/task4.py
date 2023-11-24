@@ -48,6 +48,5 @@ while True:
 
 print("Площадь объекта:", area)
 
-
 cap.release()
 cv2.destroyAllWindows()

@@ -6,27 +6,52 @@ cap = cv2.VideoCapture(0)
 
 while True:
     ret, frame = cap.read()
-
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
-    # определение диапазона красного цвета в HSV
-    min_red = np.array([0, 100, 0])
-    max_red = np.array([10, 255, 255])
-
-    mask = cv2.inRange(hsv, min_red, max_red)
-    res = cv2.bitwise_and(frame, frame, mask=mask)
+    lower_red = np.array([0, 120, 200])
+    upper_red = np.array([10, 255, 255])
+    mask = cv2.inRange(hsv, lower_red, upper_red)
 
     kernel = np.ones((10, 10), np.uint8)
-    open = cv2.morphologyEx(res, cv2.MORPH_OPEN, kernel)
-    close = cv2.morphologyEx(res, cv2.MORPH_CLOSE, kernel)
 
-    cv2.imshow('Opening', open)
-    cv2.imshow('Closing', close)
+    image_opening = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernel)
+    image_closing = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)
 
-    # нажатие клавиши esc для выхода из цикла
+    cv2.imshow("Open", image_opening)
+    cv2.imshow("Close", image_closing)
+
     if cv2.waitKey(1) & 0xFF == 27:
         break
 
-# освобождение ресурсов окна
 cap.release()
 cv2.destroyAllWindows()
+
+
+def erode(image, kernel):
+    m, n = image.shape
+    km, kn = kernel.shape
+    hkm = km // 2
+    hkn = kn // 2
+    eroded = np.copy(image)
+
+    for i in range(hkm, m - hkm):
+        for j in range(hkn, n - hkn):
+            eroded[i, j] = np.min(
+                image[i - hkm:i + hkm + 1, j - hkn:j + hkn + 1][kernel == 1])
+                # это срез изображения вокруг пикселя (i, j) с использованием размеров ядра
+    return eroded
+
+
+def dilate(image, kernel):
+    m, n = image.shape
+    km, kn = kernel.shape
+    hkm = km // 2
+    hkn = kn // 2
+    dilated = np.copy(image)
+
+    for i in range(hkm, m - hkm):
+        for j in range(hkn, n - hkn):
+            dilated[i, j] = np.max(
+                image[i - hkm:i + hkm + 1, j - hkn:j + hkn + 1][kernel == 1])
+
+    return dilated
