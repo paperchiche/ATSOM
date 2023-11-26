@@ -4,8 +4,6 @@
 import cv2
 
 cap = cv2.VideoCapture(r'C:\GitHub\ATSOM\LR1\video01.mp4')
-# если указать 0, то будет вебка
-# cap = cv2.VideoCapture(0)
 
 # cv2.CAP_PROP_BRIGHTNESS - яркость (0-1)
 # cv2.CAP_PROP_CONTRAST - контраст (0-1)

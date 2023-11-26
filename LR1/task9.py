@@ -1,20 +1,16 @@
 import cv2
 
-cap = cv2.VideoCapture(1)
-
+cap = cv2.VideoCapture(0)
 
 while True:
-    ret, frame = cap.read()
-
-    if not ret:
-        print("Конец видео.")
-        break
-    cv2.imshow("Video", frame)
-
-    # Выход на q.
-    if cv2.waitKey(25) & 0xFF == ord('q'):
+    ok, frame = cap.read()
+    if not ok:
         break
 
-# Освобождение памяти
-cap.release()
-cv2.destroyAllWindows()
+    cv2.imshow("camera", frame)
+
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+    cap.release()
+    cv2.destroyAllWindows()

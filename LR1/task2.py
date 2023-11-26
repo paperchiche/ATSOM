@@ -13,19 +13,26 @@
 # 3. cv2.IMREAD_UNCHANGED - Чтение изображения без изменений
 
 import cv2
-# Загружаем изображение с разными расширениями
 image_extensions = ["png", "jpg", "bmp"]
+image_path = r'C:/Users/20art/Desktop/02.png'
 
-for ext in image_extensions:
-    image_path = r'C:/Users/20art/Desktop/02.png'
-    img = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)  # Чтение в оттенках серого
+# Читаем изображение в оттенках серого
+image1 = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
+cv2.namedWindow('Window 1', cv2.WINDOW_FULLSCREEN)
+cv2.imshow('Window 1', image1)
+cv2.waitKey(0)
 
-    if img is not None:
-        cv2.namedWindow(f"Image ({ext})", cv2.WINDOW_NORMAL)  # Окно с изменяемым размером
-        cv2.imshow(f"Image ({ext})", img)
 
-        # Ждем нажатия клавиши и закрываем окно по нажатию клавиши
-        cv2.waitKey(0)
-        cv2.destroyAllWindows()
-    else:
-        print(f"Не получилось открыть изображение в этом формате {ext}")
+image2 = cv2.imread(image_path, cv2.IMREAD_COLOR)
+cv2.namedWindow('Window 2', cv2.WINDOW_NORMAL)
+cv2.imshow('Window 2', image2)
+cv2.waitKey(0)
+
+# Читаем изображение с учетом любой глубины цвета
+image3 = cv2.imread(image_path, cv2.IMREAD_UNCHANGED)
+cv2.namedWindow('Window 3', cv2.WINDOW_AUTOSIZE)
+cv2.imshow('Window 3', image3)
+cv2.waitKey(0)
+
+# Закрываем все открытые окна
+cv2.destroyAllWindows()
