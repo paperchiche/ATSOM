@@ -6,11 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="28967f7b-391b-4235-b561-e26207b0b4eb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LR1/task2.py" beforeDir="false" afterPath="$PROJECT_DIR$/LR1/task2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LR1/task3.py" beforeDir="false" afterPath="$PROJECT_DIR$/LR1/task3.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LR1/task8.py" beforeDir="false" afterPath="$PROJECT_DIR$/LR1/task8.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LR1/task9.py" beforeDir="false" afterPath="$PROJECT_DIR$/LR1/task9.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LR2/task4.py" beforeDir="false" afterPath="$PROJECT_DIR$/LR2/task4.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LR3/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/LR3/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +40,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/GitHub/ATSOM&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/20art/PycharmProjects/MRT_LR1&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>

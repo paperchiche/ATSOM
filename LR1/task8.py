@@ -9,11 +9,11 @@ def closest_color(x, y):
         "1": (0, 255, 0),   # Green
         "2": (0, 0, 255)    # Blue
     }
-    (r, g, b) = img[np.int16(y), np.int16(x)]
-    min_distance = float('inf')
+    (r, g, b) = img[np.int16(y), np.int16(x)]  # извлечение цвета пикселя в координатах (x, y)
+    min_distance = float('inf')  # мин расстояние между текущим цветом пикселя и цветами из словаря.
     closest = None
     for color_name, color_value in colors.items():
-        distance = sum(((r, g, b) - np.array(color_value)) ** 2)
+        distance = sum(((r, g, b) - np.array(color_value)) ** 2)  # квадрат Евклидова расстояния между цветом текущего пикселя и цветами из словаря
         if math.sqrt(distance) < min_distance:
             min_distance = math.sqrt(distance)
             closest = color_name
@@ -62,9 +62,8 @@ middle = (img.shape[1] // 2, img.shape[0] // 2)  # Координаты центра изображения
 star_size = 100  # Размер пятиконечной звезды
 star_angle = 54
 
-draw_star(img, star_size, star_angle, star_color)  # Рисование пентаграммы
+draw_star(img, star_size, star_angle, star_color)
 
-# Отображение изображения с пентаграммой
 cv2.imshow('image', img)
 cv2.waitKey(0)
 cv2.destroyAllWindows()

@@ -1,9 +1,7 @@
 # -*- coding: cp1251 -*-
 import random
-
 import cv2
 import numpy as np
-
 
 cap = cv2.VideoCapture(0)
 color_1 = 0
@@ -14,8 +12,8 @@ while True:
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
     # определение диапазона красного цвета в HSV
-    lower_red = np.array([0, 120, 200]) # минимальные значения оттенка, насыщенности и значения(яркости)
-    upper_red = np.array([100, 255, 255]) # максимальные значения оттенка, насыщенности и значения(яркости)
+    lower_red = np.array([0, 120, 200])  # минимальные значения оттенка, насыщенности и значения(яркости)
+    upper_red = np.array([100, 255, 255])  # максимальные значения оттенка, насыщенности и значения(яркости)
 
     # Маска - бинарное изображение, где пиксели, соответствующие заданному диапазону цвета, имеют значение 255 (белый), а остальные пиксели имеют значение 0 (черный).
     mask = cv2.inRange(hsv, lower_red, upper_red)
@@ -54,19 +52,19 @@ while True:
         cv2.rectangle(frame,
                       (c_x - (b // 256) - a, c_y - (b // 256)),
                       (c_x + (b // 256) - a, c_y + (b // 256)),
-                      (color_1,color_2,color_3), -1)
+                      (color_1, color_2, color_3), -1)
         cv2.rectangle(frame,
                       (c_x - (b // 256) + a, c_y - (b // 256)),
                       (c_x + (b // 256) + a, c_y + (b // 256)),
-                      (color_1,color_2,color_3), -1)
+                      (color_1, color_2, color_3), -1)
         cv2.rectangle(frame,
-                      (c_x - (b // 256) , c_y - (b // 256) - a),
-                      (c_x + (b // 256) , c_y + (b // 256) - a),
-                      (color_1,color_2,color_3), -1)
+                      (c_x - (b // 256), c_y - (b // 256) - a),
+                      (c_x + (b // 256), c_y + (b // 256) - a),
+                      (color_1, color_2, color_3), -1)
         cv2.rectangle(frame,
                       (c_x - (b // 256), c_y - (b // 256) + a),
                       (c_x + (b // 256), c_y + (b // 256) + a),
-                      (color_1,color_2,color_3), -1)
+                      (color_1, color_2, color_3), -1)
 
 
     cv2.imshow('Result_frame', frame)
