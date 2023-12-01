@@ -45,7 +45,12 @@ def run():
 
     cv2.imshow('original', img)
     blur = gaussian_blur(img, 3, 2)
+
     cv2.imshow('made blur 2', blur)
+    blur_opencv = cv2.GaussianBlur(img, (3, 3), 2)
+
+    cv2.imshow('OpenCV blur', blur_opencv)
+
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
