@@ -41,14 +41,14 @@ def gaussian_blur(img, size, d):
 
 def run():
     img = cv2.imread('01.jpg')
-    img = cv2.resize(img, (600, 600))
+    img = cv2.resize(img, (500, 500))
 
     cv2.imshow('original', img)
+
     blur = gaussian_blur(img, 5, 3)
+    cv2.imshow('made blur', blur)
 
-    cv2.imshow('made blur 2', blur)
     blur_opencv = cv2.GaussianBlur(img, (3, 3), 2)
-
     cv2.imshow('OpenCV blur', blur_opencv)
 
     cv2.waitKey(0)

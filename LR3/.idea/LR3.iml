@@ -11,5 +11,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="PROVIDED" name="ffi (v1.16.3, ruby-3.2.1 -p31) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ruby-vips (v2.2.0, ruby-3.2.1 -p31) [gem]" level="application" />
   </component>
 </module>
