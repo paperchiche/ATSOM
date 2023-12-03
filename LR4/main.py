@@ -3,8 +3,8 @@ import cv2
 
 
 def run():
-    img_original = cv2.imread(r'C:/Users/20art/Desktop/01.jpg', cv2.IMREAD_ANYCOLOR)
-    img = cv2.imread(r'C:/Users/20art/Desktop/01.jpg', cv2.IMREAD_GRAYSCALE)
+    img_original = cv2.imread(r'C:/GitHub/ATSOM/LR4/curry.jpg', cv2.IMREAD_ANYCOLOR)
+    img = cv2.imread(r'C:/GitHub/ATSOM/LR4/curry.jpg', cv2.IMREAD_GRAYSCALE)
     img = cv2.resize(img, (450, 300))
     img_original = cv2.resize(img_original, (450, 300))
     cv2.imshow('original', img_original)
