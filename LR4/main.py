@@ -188,4 +188,6 @@ def main(path, standard_deviation, kernel_size, bound_path):
     cv2.waitKey(0)
 
 
-main('curry.jpg', 3, 3, 5)
+# main('curry.jpg', 3, 3, 5)
+# main('curry.jpg', 6, 5, 10)
+main('curry.jpg', 100, 9, 15)
