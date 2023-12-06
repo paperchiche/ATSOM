@@ -15,11 +15,11 @@ def Convolution(img, kernel):
             matr[i][j] = img[i][j]
     for i in range(x_start, len(matr)-x_start):
         for j in range(y_start, len(matr[i])-y_start):
-            # операци€ свЄртки - каждый пиксель умножаетс€ на соответствующий элемент €дра свертки, а затем все произведени€ суммируютс€
+            #  каждый пиксель умножаетс€ на соответствующий элемент €дра свертки, а затем все произведени€ суммируютс€
             val = 0
             for k in range(-(kernel_size//2), kernel_size//2+1):
                 for l in range(-(kernel_size//2), kernel_size//2+1):
-                    val += img[i + k][j + l] * kernel[k +(kernel_size//2)][l + (kernel_size//2)]
+                    val += img[i + k][j + l] * kernel[k + (kernel_size//2)][l + (kernel_size//2)]
             matr[i][j] = val
     return matr
 
@@ -68,11 +68,11 @@ def main(path, standard_deviation, kernel_size, bound_path):
 
     # размытие √аусса
     img = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
+    img = cv2.resize(img, (500, 500))
     cv2.imshow("Original", img)
     imgBlur_CV2 = cv2.GaussianBlur(img, (kernel_size, kernel_size), standard_deviation)
     cv2.imshow('Blur_Imagine', imgBlur_CV2)
 
-    # задание матриц оператора —обел€
     Gx = [[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]]
     Gy = [[-1, -2, -1], [0, 0, 0], [1, 2, 1]]
 
@@ -91,7 +91,7 @@ def main(path, standard_deviation, kernel_size, bound_path):
         for j in range(img.shape[1]):
             matr_gradient[i][j] = np.sqrt(img_Gx[i][j] ** 2 + img_Gy[i][j] ** 2)
 
-    s=0
+    s = 0
 
     for i in range(img.shape[0]):
         for j in range(img.shape[1]):
@@ -111,21 +111,29 @@ def main(path, standard_deviation, kernel_size, bound_path):
     img_gradient_to_print = matr_gradient.copy()
     # поиск максимального значени€ длины градиента
     max_gradient = np.max(matr_gradient)
+    print(max_gradient)
     for i in range(img.shape[0]):
         for j in range(img.shape[1]):
-            img_gradient_to_print[i][j] = (float(matr_gradient[i][j]) / max_gradient) * 255  # необходимо дл€ корректного отображени€ на экране
-    #cv2.imshow('Matrix_gradient ' + str(i), img_gradient_to_print)
+            img_gradient_to_print[i][j] = (float(matr_gradient[i][j]) / max_gradient)
+
+    sigma = 2.0
+    normalized_matrix_gradient_gaussian = np.exp(-(img_gradient_to_print) ** 2 / (2 * sigma ** 2))
+
+    # normalized_matrix_gradient = img_gradient_to_print / 255.0
     print('ћатрица значений длин градиента:')
-    print(img_gradient_to_print)
+    # print(normalized_matrix_gradient)
+    print(normalized_matrix_gradient_gaussian)
 
     # вывод матрицы значений углов градиента
     img_angles_to_print = img.copy()
     for i in range(img.shape[0]):
         for j in range(img.shape[1]):
-            img_angles_to_print[i][j] = img_angles[i][j] / 7 * 255  # необходимо дл€ корректного отображени€ на экране
-    # cv2.imshow('Matrix_angles ' + str(i), img_angles_to_print)
+            img_angles_to_print[i][j] = img_angles[i][j] / 7 * 255
+    normalized_matrix_angles_gaussian = np.exp(-(img_angles_to_print) / 255) ** 2 / (2 * sigma ** 2)
     print('ћатрица значений углов градиента:')
-    print(img_angles_to_print)
+    print(normalized_matrix_angles_gaussian)
+
+    # cv2.imshow('d', normalized_matrix_gradient_gaussian)
 
     img_border = img.copy()
     for i in range(img.shape[0]):
@@ -134,7 +142,7 @@ def main(path, standard_deviation, kernel_size, bound_path):
             gradient = matr_gradient[i][j]
             # проверка находитс€ ли пиксель на границе изображени€
             if i == 0 or i == img.shape[0] - 1 or j == 0 or j == img.shape[1] - 1:
-                img_border[i][j] = 0 # граничный пиксель в значении 0
+                img_border[i][j] = 0  # граничный пиксель в значении 0
             # определение смещени€ по ос€м в зависимости от значени€ угла градиента
             else:
                 x_shift = 0
@@ -188,6 +196,7 @@ def main(path, standard_deviation, kernel_size, bound_path):
     cv2.waitKey(0)
 
 
-# main('curry.jpg', 3, 3, 5)
-# main('curry.jpg', 6, 5, 10)
-main('curry.jpg', 100, 9, 15)
+
+main('curry.jpg', 3, 3, 5)
+#main('curry.jpg', 6, 5, 10)
+#main('curry.jpg', 100, 9, 15)
