@@ -33,6 +33,8 @@ def main(kernel_size, standard_deviation, delta_tresh, min_area):
         # бинаризируем её, превращая пиксели, превышающие порог delta_tresh, в белый цвет, а остальные в черный
         # сохраняем только пороговое значение
         thresh = cv2.threshold(diff, delta_tresh, 255, cv2.THRESH_BINARY)[1]
+        # print(thresh)
+        # cv2.imshow("a",thresh)
         # находим контуры
         (contors, hierarchy) = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
