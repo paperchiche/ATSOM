@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="28967f7b-391b-4235-b561-e26207b0b4eb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/LR6/Convolutional_Neural_Network.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LR6/Multilayer_Perceptron_MNIST.py" beforeDir="false" afterPath="$PROJECT_DIR$/LR6/Multilayer_Perceptron_MNIST.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/events.out.tfevents.1702235226.LAPTOP-P3EA7243.26184.0.v2" beforeDir="false" afterPath="$PROJECT_DIR$/train/events.out.tfevents.1702235226.LAPTOP-P3EA7243.26184.0.v2" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
