@@ -21,8 +21,8 @@ test_images = test_images.reshape(test_images.shape[0], 28, 28, 1)
 model = models.Sequential()
 # добавление первого слоя
 model.add(layers.Conv2D(32, (3, 3), activation='relu', input_shape=(28, 28, 1)))
-# добавление слоя пулинга - т.е. уменьшение размерности пространства признаков, уменьшением количество параметров и вычислений в сети, следовательно, предотвращение переобучение.
-model.add(layers.MaxPooling2D((2, 2)))
+
+model.add(layers.MaxPooling2D((2, 2)))  # слой пулинга - уменьшает размерность пространства признаков путем выбора макс. значения из каждой подгруппы пикселей -> уменьшение кол-ва параметов и вычислений предотвращение переобучения
 # добавление второго слоя
 model.add(layers.Conv2D(64, (3, 3), activation='relu'))
 model.add(layers.MaxPooling2D((2, 2)))
